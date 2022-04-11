@@ -167,11 +167,18 @@ h1{
     align-items: center;
 }
 
+.won{
+    background-color: antiquewhite;
+}
 
 
 .Turn  {
     background-color: antiquewhite;
     border-bottom: 2px solid var(--purple);
+}
+
+.blure{
+    opacity: 50%;
 }
 
 @media (max-width:600px) {
