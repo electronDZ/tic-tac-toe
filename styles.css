@@ -167,6 +167,13 @@ h1{
     align-items: center;
 }
 
+
+
+.Turn  {
+    background-color: antiquewhite;
+    border-bottom: 2px solid var(--purple);
+}
+
 @media (max-width:600px) {
     #gameboard{
         width: 300px;
