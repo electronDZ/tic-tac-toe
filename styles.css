@@ -168,19 +168,54 @@ h1{
 }
 
 .won{
-    background-color: antiquewhite;
+    background-color: rgb(243, 251, 236);
+    border-radius: 20px;
+    padding: 0 15px;
+    /* animation: scoreAnimate 1s 1; */
+}
+.won h1{
+    animation: scoreAnimate 1s 1;
 }
 
+@keyframes scoreAnimate {
+    0%{
+        transform: scale(.9);
+    }
+    50%{
+        transform: scale(1.8);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
 
 .Turn  {
     background-color: antiquewhite;
     border-bottom: 2px solid var(--purple);
 }
 
-.blure{
+.blur{
     opacity: 50%;
 }
 
+.highlight{
+    opacity: 100%;
+    animation: high 1s 1;
+}
+
+.highlightDraw{
+    animation: border high 1s 1;
+}
+
+@keyframes high {
+    25%,75%,100%{
+        opacity: 50%;
+    }
+    0%,50%,100%{
+        opacity: 100%;
+    }
+
+}
 @media (max-width:600px) {
     #gameboard{
         width: 300px;
