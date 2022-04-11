@@ -110,8 +110,8 @@ img {
 
 
 .states{
-    padding: 2px;
-    /* width: 30%; */
+    /* padding: 2px; */
+    width: 80%; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -165,4 +165,23 @@ h1{
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+@media (max-width:600px) {
+    #gameboard{
+        width: 300px;
+    }
+
+    .box{
+        width: 100px;
+        height: 100px;
+    }
+
+    h3{
+        font-size: 1.2rem;
+    }
+
+    .states{
+        width: 450px; 
+    }
 }
