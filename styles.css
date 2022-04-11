@@ -184,4 +184,9 @@ h1{
     .states{
         width: 450px; 
     }
+    .container{
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+    }
 }
