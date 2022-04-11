@@ -171,7 +171,6 @@ h1{
     background-color: rgb(243, 251, 236);
     border-radius: 20px;
     padding: 0 15px;
-    /* animation: scoreAnimate 1s 1; */
 }
 .won h1{
     animation: scoreAnimate 1s 1;
@@ -241,5 +240,10 @@ h1{
     }
     .box:hover{
         background-color: transparent;
+    }
+    .won{
+        background-color: rgb(243, 251, 236);
+        border-radius: 20px;
+        padding: 0 7px;
     }
 }
