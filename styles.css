@@ -183,6 +183,7 @@ h1{
 
     .states{
         width: 450px; 
+        border: none;
     }
     .container{
         height: 100vh;
