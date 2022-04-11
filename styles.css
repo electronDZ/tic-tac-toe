@@ -39,11 +39,11 @@ body{
     align-items: center;
     justify-content: center;
     color: var(--purple);
-    cursor: pointer;
+    /* cursor: pointer; */
 }
-.box:hover{
-    background-color: azure;
-}
+/* .box:hover{
+    background-color: rgb(255, 255, 253,.5);
+} */
 
 button{
     padding: 10px 20px;
@@ -231,6 +231,7 @@ h1{
 @media (max-width:600px) {
     *{
         -webkit-tap-highlight-color: transparent;
+        cursor: default !important;
     }
     #gameboard{
         width: 300px;
