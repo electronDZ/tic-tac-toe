@@ -229,6 +229,9 @@ h1{
 
 }
 @media (max-width:600px) {
+    *{
+        -webkit-tap-highlight-color: transparent;
+    }
     #gameboard{
         width: 300px;
     }
@@ -258,5 +261,8 @@ h1{
         background-color: rgb(243, 251, 236);
         border-radius: 20px;
         padding: 0 7px;
+    }
+    .draw{
+        padding: 0 28px !important;
     }
 }
