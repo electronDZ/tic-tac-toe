@@ -11,8 +11,8 @@ const score1 = document.querySelector(".score1"), score2 = document.querySelecto
 
 let p1 = 0, p2 = 0, d = 0;
 
-let o = '<img class="o" src="img/o.png"></img>';
-let x = '<img class="x" src="img/x.png"></img>';
+let o = '<img class="o letter" src="img/o.png"></img>';
+let x = '<img class="x letter" src="img/x.png"></img>';
 let steps = 0;
 
 var playerOne = [];
@@ -39,9 +39,8 @@ function won(){
         plr.classList.remove("Turn")
     })
     scr.forEach(score => {
-        score.classList.add("blure")
+        score.classList.add("blur")
     })
-
 }
 
 function boxClick(){
@@ -66,6 +65,7 @@ function boxClick(){
     //  !testing arrays  to decide who won
     
     if (testPlayer(playerOne)) {
+        idk(playerOne)
         text.innerText = "X won"
         reset()
         gameBoard.style.pointerEvents = "none"
@@ -73,9 +73,10 @@ function boxClick(){
         score1.innerText = p1; // ? displaying score
         audioW.play()
         won()
-        scr[0].classList.remove("blure")
+        scr[0].classList.remove("blur")
         scr[0].classList.add("won")
-    }else if (testPlayer(playerTwo)) {   
+    }else if (testPlayer(playerTwo)) { 
+        idk(playerTwo)  
         text.innerText = "O won"
         reset()
         gameBoard.style.pointerEvents = "none"
@@ -83,17 +84,21 @@ function boxClick(){
         score2.innerText = p2; // ? displaying score
         audioW.play()
         won()
-        scr[2].classList.remove("blure")
+        scr[2].classList.remove("blur")
         scr[2].classList.add("won")
         
     }else if (steps === 9) {  // ! draw !!!!!!!!!
+        highlightDraw()
         text.innerText = "draw !"
         reset()
         d++;
         scoreD.innerText = d; // ? displaying score
         resetBtn.style.display = "block";
         won()
-        scr[1].classList.remove("blure")
+        scr[1].classList.remove("blur")
+        scr[1].classList.add("won")
+        scr[1].style.backgroundColor = "#F0FDFF"
+        audioW.play()
     }
     
     this.style.pointerEvents = "none"
@@ -146,15 +151,71 @@ function reset(){
             player[2].classList.add("Turn")
         }
         scr.forEach(score => {
-            score.classList.remove("blure")
+            score.classList.remove("blur")
             score.classList.remove("won")
         })
+        scr[1].style.backgroundColor = "transparent"
     })
 }
 
 function declare(){
     boxes = document.querySelectorAll(".box");
     gameBoard = document.querySelector("#gameboard");
+}
+
+function highlightDraw(){
+    const letter = document.querySelectorAll(".letter");
+
+    boxes.forEach(box => {
+        box.style.borderWidth = "5px";
+        // box.style.borderColor = "black"
+        box.classList.add("highlight")
+    })
+
+    letter.forEach(ltr => {
+        ltr.style.opacity = "50%"
+    })
+
+}
+
+function highlight(a, b, c){
+    boxes.forEach(box => {
+        if (box.innerHTML != "") {
+            box.firstChild.classList.add("blur")
+        }
+    })
+    boxes[a].firstChild.classList.add("highlight")
+    boxes[b].firstChild.classList.add("highlight")
+    boxes[c].firstChild.classList.add("highlight")
+}
+
+function idk(player){
+    switch (true) {
+        case include(player,"0","1","2"):
+          highlight(0,1,2)
+          break;
+        case include(player,"0","4","8"):
+          highlight(0,4,8)
+          break;
+        case include(player,"0","3","6"):
+          highlight(0,3,6)
+          break;
+        case include(player,"3","4","5"):
+          highlight(3,4,5)
+          break;
+        case include(player,"6","7","8"):
+          highlight(6,7,8)
+          break;
+        case include(player,"1","4","7"):
+          highlight(1,4,7)
+          break;
+        case include(player,"2","5","8"):
+          highlight(2,5,8)
+          break;
+        case include(player,"6","4","2"):
+          highlight(6,4,2)
+          break;                              
+      }     
 }
 
 // ! here we start
