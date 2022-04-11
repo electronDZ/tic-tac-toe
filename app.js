@@ -1,5 +1,6 @@
 var boxes ;
 var gameBoard ;
+const player = document.querySelectorAll("h3")
 const text = document.querySelector(".text");
 const resetBtn = document.querySelector(".reset");
 declare()
@@ -26,7 +27,11 @@ let clone = clone1.cloneNode(true)
 clone.classList.add("copy")
 
 declare()
-// reset()
+
+function turn(){
+    player[0].classList.toggle("Turn")
+    player[2].classList.toggle("Turn")
+}
 
 function boxClick(){
     
@@ -34,38 +39,42 @@ function boxClick(){
     steps ++;
     
     if (playerTurn) {
-        // text.innerText = ("O turn")
+        text.innerText = "O turn"
+        turn();
         this.innerHTML += x;
         playerOne.push(this.id)
         audioX.play();
-        newGame()
     } else {
-        
+        text.innerText = "X turn"
+        turn()
         this.innerHTML += o;
         playerTwo.push(this.id)
         audioO.play();
-        // text.innerText = ("X turn")
     }
 
-    
     //  !testing arrays  to decide who won
     
     if (testPlayer(playerOne)) {
-        
-        reset()
 
+        text.innerText = "X won"
+
+        reset()
         gameBoard.style.pointerEvents = "none"
         p1++;
         score1.innerText = p1; // ? displaying score
         audioW.play()
     }else if (testPlayer(playerTwo)) {   
-        // text.innerText = "Player Two Won !"
+        text.innerText = "O won"
+
+
         reset()
         gameBoard.style.pointerEvents = "none"
         p2++;
         score2.innerText = p2; // ? displaying score
         audioW.play()
     }else if (steps === 9) {  // ! draw !!!!!!!!!
+        text.innerText = "draw !"
+
         reset()
         d++;
         scoreD.innerText = d; // ? displaying score
@@ -84,12 +93,8 @@ function clickBtn(){
     })
 }
 
-
-
 function testPlayer(player){
-    
     return (include(player,"0","1","2") || include(player,"0","4","8") || include(player,"0","3","6") || include(player,"3","4","5") || include(player,"6","7","8") || include(player,"1","4","7") || include(player,"2","5","8") || include(player,"6","4","2") ) 
-    
 }
 
 function newGame(){
@@ -100,11 +105,9 @@ function newGame(){
     } )
 }
 
-
 function include(player, a,b,c){
     return (player.includes(a) && player.includes(b) && player.includes(c))
 }
-
 
 function reset(){
     resetBtn.style.display = "block";
@@ -120,6 +123,11 @@ function reset(){
         playerTwo = [];
         steps = 0;
         resetBtn.style.display = "none"
+        if(playerTurn){
+            text.innerText = "X start !"
+        }else{
+            text.innerText = "O start !"
+        }
     })
 }
 
@@ -128,8 +136,8 @@ function declare(){
     gameBoard = document.querySelector("#gameboard");
 }
 
+// ! here we start
 newGame()
-
 clickBtn()
 
 
