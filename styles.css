@@ -190,4 +190,7 @@ h1{
         width: 100vw;
         overflow: hidden;
     }
+    .box:hover{
+        background-color: transparent;
+    }
 }
