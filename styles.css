@@ -1,0 +1,168 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+:root{
+    --purple: #3e0249;
+}
+body{
+    margin: 0;
+    padding: 0;
+    color: var(--purple);
+    font-family: "Poppins", sans-serif;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+
+.container{
+    padding: 40px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gameboard{
+    width: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 40px;
+    clip-path: circle();
+
+    /* animation: appear 1.3s 1 ; */
+}
+
+.box{
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--purple);
+    cursor: pointer;
+}
+.box:hover{
+    background-color: azure;
+}
+
+button{
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: var(--purple);
+    color: white;
+    border-color: var(--purple);
+    font-size: 10px;
+    transition: .2s ;
+}
+button:hover{
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
+.newGame{
+    animation: appear 2s 1 ;
+}
+
+
+
+img {
+    width: 100%;
+    padding: 20px;
+    animation: sign .2s 1 ;
+}
+
+
+.lft{
+    border-left: 2px solid var(--purple);
+}
+.rght{
+    border-right: 2px solid var(--purple);
+}
+.btm{
+    border-bottom: 2px solid var(--purple);
+}
+.top{
+    border-top: 2px solid var(--purple);
+}
+
+@keyframes appear {
+    0%{
+        clip-path: circle(0% at 50% 50%);
+    }
+    
+    100%{
+        clip-path: circle(150% at 50% 50%);
+    }
+}
+
+@keyframes sign {
+    0%{
+        /* clip-path: circle(0% at 0 0); */
+        transform: scale(.1);
+    }
+    100%{
+        /* clip-path: circle(150% at 0 0); */
+        transform: scale(1);
+    }
+}
+
+
+.states{
+    padding: 2px;
+    /* width: 30%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border-left: 1px  solid var(--purple);
+    border-right: 1px  solid var(--purple);
+    border-radius: 20px;
+    margin-top: 30px;
+}
+
+h3{
+    font-size: 1.5rem;
+}
+
+h1{
+    margin-top: -20px;
+}
+
+.player{
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+    flex-direction: column;
+    margin: 0 50px;
+}
+
+.reset{
+    padding: 7px 20px;
+    background: #341539;
+    border-radius: 10px;
+    color: white;
+    transition: .5s ease;
+    cursor: pointer;
+    display: none;
+}
+
+
+.reset:hover{
+    transform: scale(1.05)  translateY(-3px);
+}
+
+.copy{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}   
+
+.wrap{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
