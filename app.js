@@ -1,6 +1,7 @@
 var boxes ;
 var gameBoard ;
-const player = document.querySelectorAll("h3")
+const player = document.querySelectorAll("h3");
+const scr = document.querySelectorAll(".scr");
 const text = document.querySelector(".text");
 const resetBtn = document.querySelector(".reset");
 declare()
@@ -33,6 +34,16 @@ function turn(){
     player[2].classList.toggle("Turn")
 }
 
+function won(){
+    player.forEach(plr => {
+        plr.classList.remove("Turn")
+    })
+    scr.forEach(score => {
+        score.classList.add("blure")
+    })
+
+}
+
 function boxClick(){
     
     // ! touch 
@@ -55,31 +66,34 @@ function boxClick(){
     //  !testing arrays  to decide who won
     
     if (testPlayer(playerOne)) {
-
         text.innerText = "X won"
-
         reset()
         gameBoard.style.pointerEvents = "none"
         p1++;
         score1.innerText = p1; // ? displaying score
         audioW.play()
+        won()
+        scr[0].classList.remove("blure")
+        scr[0].classList.add("won")
     }else if (testPlayer(playerTwo)) {   
         text.innerText = "O won"
-
-
         reset()
         gameBoard.style.pointerEvents = "none"
         p2++;
         score2.innerText = p2; // ? displaying score
         audioW.play()
+        won()
+        scr[2].classList.remove("blure")
+        scr[2].classList.add("won")
+        
     }else if (steps === 9) {  // ! draw !!!!!!!!!
         text.innerText = "draw !"
-
         reset()
         d++;
         scoreD.innerText = d; // ? displaying score
         resetBtn.style.display = "block";
-        reset()
+        won()
+        scr[1].classList.remove("blure")
     }
     
     this.style.pointerEvents = "none"
@@ -97,16 +111,16 @@ function testPlayer(player){
     return (include(player,"0","1","2") || include(player,"0","4","8") || include(player,"0","3","6") || include(player,"3","4","5") || include(player,"6","7","8") || include(player,"1","4","7") || include(player,"2","5","8") || include(player,"6","4","2") ) 
 }
 
+function include(player, a,b,c){
+    return (player.includes(a) && player.includes(b) && player.includes(c))
+}
+
 function newGame(){
     gameBoard.classList.remove("newGame")
     gameBoard.classList.add("newGame")
     gameBoard.addEventListener("animationend", () => {
         gameBoard.style.clipPath = "none"
     } )
-}
-
-function include(player, a,b,c){
-    return (player.includes(a) && player.includes(b) && player.includes(c))
 }
 
 function reset(){
@@ -125,9 +139,16 @@ function reset(){
         resetBtn.style.display = "none"
         if(playerTurn){
             text.innerText = "X start !"
+            player[0].classList.add("Turn")
+
         }else{
             text.innerText = "O start !"
+            player[2].classList.add("Turn")
         }
+        scr.forEach(score => {
+            score.classList.remove("blure")
+            score.classList.remove("won")
+        })
     })
 }
 
