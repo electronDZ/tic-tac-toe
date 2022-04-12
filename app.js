@@ -63,7 +63,6 @@ function boxClick(){
     }
 
     //  !testing arrays  to decide who won
-    
     if (testPlayer(playerOne)) {
         idk(playerOne)
         text.innerText = "X won"
@@ -86,7 +85,6 @@ function boxClick(){
         won()
         scr[2].classList.remove("blur")
         scr[2].classList.add("won")
-        
     }else if (steps === 9) {  // ! draw !!!!!!!!!
         highlightDraw()
         text.innerText = "draw !"
