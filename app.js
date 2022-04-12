@@ -121,7 +121,6 @@ function include(player, a,b,c){
 }
 
 function newGame(){
-    gameBoard.classList.remove("newGame")
     gameBoard.classList.add("newGame")
     gameBoard.addEventListener("animationend", () => {
         gameBoard.style.clipPath = "none"
@@ -145,7 +144,6 @@ function reset(){
         if(playerTurn){
             text.innerText = "X start !"
             player[0].classList.add("Turn")
-
         }else{
             text.innerText = "O start !"
             player[2].classList.add("Turn")
@@ -168,14 +166,13 @@ function highlightDraw(){
 
     boxes.forEach(box => {
         box.style.borderWidth = "5px";
-        // box.style.borderColor = "black"
+        box.style.borderColor = "black"
         box.classList.add("highlight")
     })
 
     letter.forEach(ltr => {
         ltr.style.opacity = "50%"
     })
-
 }
 
 function highlight(a, b, c){
@@ -189,7 +186,9 @@ function highlight(a, b, c){
     boxes[c].firstChild.classList.add("highlight")
 }
 
+
 function idk(player){
+    const stike = document.querySelector(".win")
     switch (true) {
         case include(player,"0","1","2"):
           highlight(0,1,2)
@@ -221,10 +220,3 @@ function idk(player){
 // ! here we start
 newGame()
 clickBtn()
-
-
-
-
-
-
-
