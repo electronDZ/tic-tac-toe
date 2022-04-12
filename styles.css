@@ -14,9 +14,7 @@ body{
     box-sizing: border-box;
 }
 
-
 .container{
-    padding: 40px;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -39,11 +37,7 @@ body{
     align-items: center;
     justify-content: center;
     color: var(--purple);
-    /* cursor: pointer; */
 }
-/* .box:hover{
-    background-color: rgb(255, 255, 253,.5);
-} */
 
 button{
     padding: 10px 20px;
@@ -63,26 +57,17 @@ button:hover{
     animation: appear 2s 1 ;
 }
 
-
-
 img {
     width: 100%;
     padding: 20px;
     animation: sign .2s 1 ;
 }
 
-
-.lft{
-    border-left: 2px solid var(--purple);
-}
 .rght{
     border-right: 2px solid var(--purple);
 }
 .btm{
     border-bottom: 2px solid var(--purple);
-}
-.top{
-    border-top: 2px solid var(--purple);
 }
 
 @keyframes appear {
@@ -97,26 +82,18 @@ img {
 
 @keyframes sign {
     0%{
-        /* clip-path: circle(0% at 0 0); */
         transform: scale(.1);
     }
     100%{
-        /* clip-path: circle(150% at 0 0); */
         transform: scale(1);
     }
 }
 
-
 .states{
-    /* padding: 2px; */
-    width: 80%; 
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    border-left: 1px  solid var(--purple);
-    border-right: 1px  solid var(--purple);
-    border-radius: 20px;
     margin-top: 100px;
 }
 
@@ -136,7 +113,6 @@ h1{
 
 .player{
     display: flex;
-    /* justify-content: center; */
     align-items: center;
     flex-direction: column;
     margin: 0 20px;
@@ -157,9 +133,8 @@ h1{
     display: none;
 }
 
-
 .reset:hover{
-    transform: scale(1.05)  translateY(-3px);
+    transform: scale(1.05) ;
 }
 
 .copy{
@@ -189,20 +164,19 @@ h1{
 
 @keyframes scoreAnimate {
     0%{
-        transform: scale(.9);
+        transform: scale(1);
     }
     50%{
-        transform: scale(1.8);
+        transform: scale(2.5);
     }
     100%{
         transform: scale(1);
     }
 }
 
-.Turn  {
+.Turn{
     background-color: rgb(249, 242, 233);
     border-bottom: 2px solid var(--purple);
-    -webkit-box-shadow: 0px 0px 50px -11px rgba(0,0,0,0.2); 
     box-shadow: 0px 0px 50px -11px rgba(0,0,0,0.06);
 }
 
@@ -226,7 +200,6 @@ h1{
     0%,50%,100%{
         opacity: 100%;
     }
-
 }
 @media (max-width:600px) {
     *{
@@ -246,23 +219,17 @@ h1{
         font-size: 1.2rem;
     }
 
-    .states{
-        width: 450px; 
-        border: none;
-    }
     .container{
         height: 100vh;
         width: 100vw;
         overflow: hidden;
     }
-    .box:hover{
-        background-color: transparent;
-    }
+
     .won{
-        background-color: rgb(243, 251, 236);
         border-radius: 20px;
         padding: 0 7px;
     }
+    
     .draw{
         padding: 0 28px !important;
     }
