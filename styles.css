@@ -115,6 +115,7 @@ h1{
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 0 15px;
     margin: 0 20px;
     transition: .3s ease;
 }
@@ -156,7 +157,6 @@ h1{
 .won{
     background-color: rgb(243, 251, 236);
     border-radius: 20px;
-    padding: 0 15px;
     -webkit-box-shadow: 0px 0px 50px -11px rgba(0,0,0,0.2); 
     box-shadow: 0px 0px 50px -11px rgba(0,0,0,0.06);
 }
@@ -168,7 +168,7 @@ h1{
     0%{
         transform: scale(1);
     }
-    50%{
+    25%,50%,75%{
         transform: scale(2.5);
     }
     100%{
@@ -192,7 +192,7 @@ h1{
 }
 
 .highlightDraw{
-    animation: border high 1s 1;
+    animation: border high 1.2s 1;
 }
 
 @keyframes high {
